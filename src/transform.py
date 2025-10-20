@@ -1,8 +1,14 @@
 import pandas as pd
 import os
+import random
+import string
 from style import custom_border_message
 
 file_path = "../data/raw_data.csv"
+
+def generate_order_guid():
+    """Generates an 8-character random string for each sale (uniqued GUID)."""
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
 def transform_data(df):
     """
@@ -10,7 +16,10 @@ def transform_data(df):
     - Assigning column names,
     - removing PIIs,
     - Handling missing & duplicate values, 
-    - Standardising text fields
+    - Standardising text fields,
+    - Preparing numeric price for DB,
+    - Converting date column,
+    - Generating unique sale GUID for each row. 
     """
     try:
         # Assign Column Names
@@ -29,10 +38,6 @@ def transform_data(df):
         df = df.drop(columns=["Customer Name", "Card Number"])
         custom_border_message("[INFO] Removed PII columns successfully.")
 
-        # Remove duplicates
-        # df = df.drop_duplicates()
-        # custom_border_message("[INFO] Removed duplicate records.")
-
         # Standardise Column names
         for col in ["Drink", "Branch", "Payment Type"]:
             df[col] = df[col].str.title()
@@ -45,12 +50,17 @@ def transform_data(df):
 
         # Convert Date column to datetime
         df['Date'] = pd.to_datetime(df['Date'], format="%d/%m/%Y")
-        custom_border_message("[INFO] Conerted 'Date' column to datetime format.")
+        custom_border_message("[INFO] Converted 'Date' column to datetime format.")
+
+        # Generate unique sale GUID
+        df['Sale_GUID'] = [generate_order_guid() for _ in range(len(df))]
+        custom_border_message("[INFO] Generated unique 'Sale_GUID' for each row.")
 
         # At this point:
         # - df['Price'] still has £ for display/CSV
         # - df['Price_num'] is clean numeric for DB
         # - df['Date'] is proper datetime for DB
+        # - df['Sale_GUID] is unique for each sale
         
         return df
 
