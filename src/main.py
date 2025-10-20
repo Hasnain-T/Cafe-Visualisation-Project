@@ -3,6 +3,7 @@ from style import custom_border_message
 from extract import extract_csv
 from transform import transform_data
 from load import load_clean_data
+from load_to_db import load_to_db
 
 file_path = "../data/raw_data.csv"
 
@@ -22,6 +23,10 @@ if __name__ == "__main__":
             load_success = load_clean_data(df_clean)
             if load_success:
                 custom_border_message("[INFO] Data successfully saved to clean_data.csv")
+                
+                load_to_db(df_clean)
+                custom_border_message("[INFO] Data successfully loaded into PostgreSQL.")
+
                 # Print clean data in Terminal
                 custom_border_message(df_clean.to_string())
             else: 
