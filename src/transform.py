@@ -30,8 +30,8 @@ def transform_data(df):
         custom_border_message("[INFO] Removed PII columns successfully.")
 
         # Remove duplicates
-        df = df.drop_duplicates()
-        custom_border_message("[INFO] Removed duplicate records.")
+        # df = df.drop_duplicates()
+        # custom_border_message("[INFO] Removed duplicate records.")
 
         # Standardise Column names
         for col in ["Drink", "Branch", "Payment Type"]:
