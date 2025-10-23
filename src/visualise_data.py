@@ -1,3 +1,6 @@
+# Visualising the Data
+# Run each cell in order 
+
 # %% Imports
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -34,6 +37,7 @@ plt.ylabel("Number of Transactions")
 plt.xlabel("Payment Type")
 plt.tight_layout()
 plt.show()
+
 # %%
 # Total Sales per Branch
 plt.figure(figsize=(10,6))
@@ -45,6 +49,7 @@ plt.xlabel("Branch")
 plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
+
 # %%
 # Sales Over Time
 plt.figure(figsize=(12,6))
@@ -56,6 +61,45 @@ plt.ylabel("Revenue (£)")
 plt.xlabel("Date")
 plt.xticks(rotation=15)
 plt.tight_layout()
+plt.show()
+
+# %%
+# Average Drink Price Across Branches
+# Group by Branch and Drink, take the average Price
+avg_price = df.groupby(["Branch", "Drink"])["Price_num"].mean().unstack()
+
+plt.figure(figsize=(12,7))
+avg_price.plot(kind="bar", stacked=False, figsize=(12, 7))
+
+plt.title("Average Drink Price Across Branches", fontsize=16)
+plt.xlabel("Branch", fontsize=12)
+plt.ylabel("Average Price (£)", fontsize=12)
+plt.legend(title="Drink", bbox_to_anchor=(1.05, 1), loc="upper left")
+plt.xticks(rotation=45)
+plt.grid(axis='y', linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()
+
+# %%
+# Heatmap: Average Prices
+avg_matrix = df.pivot_table(values="Price_num", index="Drink", columns="Branch", aggfunc="mean")
+plt.figure(figsize=(10,6))
+sns.heatmap(avg_matrix, annot=True, cmap="viridis", fmt=".2f")
+plt.title("Averae Drink Price by Branch (Heatmap)")
+plt.show()
+
+# %%
+payment_share = df["Payment Type"].value_counts()
+plt.pie(payment_share, labels=payment_share.index, autopct="%1.1f%%", startangle=90)
+plt.title("Payment Method as %")
+plt.show()
+
+# %%
+# Branch vs Payment Type (Clustered Bar Chart)
+branch_payment = df.groupby(["Branch", "Payment Type"])["Price_num"].sum().unstack()
+branch_payment.plot(kind="bar", figsize=(10,6))
+plt.title("Branch vs Payment Type = Total Sales")
+plt.ylabel("Revenue (£)")
 plt.show()
 
 # %%
