@@ -89,3 +89,5 @@ def load_to_db(df: pd.DataFrame):
             cursor.close()
         if conn:
             conn.close()
+
+# Access via localhost:8080

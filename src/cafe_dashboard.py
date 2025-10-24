@@ -159,3 +159,6 @@ with cols3[2]:
 
 st.markdown("---")
 st.success("All visualisations loaded successfully! ✅")
+
+# Run this is the terminal:
+# streamlit run cafe_dashboard.py
