@@ -61,7 +61,6 @@ The Streamlit dashboard provides:
 ## 🛠️ Setup Instructions
 
 ### 1️⃣ Clone the Repository
-```bash
 git clone https://github.com/Hasnain-T/Cafe-Visualisation-Project
 cd cafe-etl-dashboard
 
