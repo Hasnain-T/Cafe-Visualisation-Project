@@ -6,20 +6,20 @@ A data engineering mini-project that performs **ETL (Extract, Transform, Load)**
 
 ## 📁 Project Structure
 
-project_root/
-│
-├── data/
-│ ├── raw_data.csv # Input dataset (raw sales data)
-│ └── cleaned_data.csv # Output dataset after ETL
-│
-└── src/
-├── main.py # Main ETL pipeline + dashboard launcher
-├── cafe_dashboard.py # Streamlit dashboard app
-├── extract.py # Extract data from CSV
-├── transform.py # Clean and transform data
-├── load.py # Save cleaned data to CSV
-├── load_to_db.py # Load data into PostgreSQL
-├── style.py # Custom terminal output styling
+- project_root/
+    - │
+    - ├── data/
+    - │ ├── raw_data.csv # Input dataset (raw sales data)
+    - │ └── cleaned_data.csv # Output dataset after ETL
+    - │
+    - └── src/
+    - ├── main.py # Main ETL pipeline + dashboard launcher
+    - ├── cafe_dashboard.py # Streamlit dashboard app
+    - ├── extract.py # Extract data from CSV
+    - ├── transform.py # Clean and transform data
+    - ├── load.py # Save cleaned data to CSV
+    - ├── load_to_db.py # Load data into PostgreSQL
+    - ├── style.py # Custom terminal output styling
 
 ---
 
