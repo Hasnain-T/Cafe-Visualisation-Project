@@ -26,9 +26,9 @@ project_root/
 ## 🚀 Features
 
 - **Extract:** Reads raw café sales data from a CSV file  
-- **Transform:** Cleans and standardizes the dataset  
+- **Transform:** Cleans and standardises the dataset  
 - **Load:** Saves the cleaned data into a new CSV and PostgreSQL database  
-- **Visualize:** Automatically launches a Streamlit dashboard with KPIs and interactive charts  
+- **Visualise:** Automatically launches a Streamlit dashboard with KPIs and interactive charts  
 
 ---
 
@@ -47,13 +47,15 @@ project_root/
 
 The Streamlit dashboard provides:
 
-- 💰 **Total Revenue**
-- 🛒 **Total Orders**
-- ☕ **Average Drink Price**
+- 💰 **Total Revenue per Drink**
+- 🛒 **Total Sales per Branch**
+- ☕ **Average Drink Price Across Branches**
 - 🏬 **Branch Count**
 - 📈 Sales Over Time
 - 🥤 Drink Popularity by Branch
-- 💳 Payment Method Distribution
+- 💳 Branch vs Payment Type (Total Sales)
+- 💳 Payment Type Distribution
+- 💳 Payment Method Share
 - 🌡️ Heatmap: Average Prices per Branch
 
 ---
@@ -62,7 +64,7 @@ The Streamlit dashboard provides:
 
 ### 1️⃣ Clone the Repository
 git clone https://github.com/Hasnain-T/Cafe-Visualisation-Project
-cd cafe-etl-dashboard
+cd Cafe-Visualisation-Project
 
 
 ### 2️⃣ Create and Activate a Virtual Environment
@@ -81,44 +83,41 @@ Ensure src/main.py and src/cafe_dashboard.py exist, and data/raw_data.csv is ava
 
 ### ▶️ Run the ETL Pipeline + Dashboard
 
-From the src directory:
+- From the src directory:
+    - python main.py OR py main.py OR python3 main.py
 
-python main.py OR py main.py OR python3 main.py
 
+- The ETL process will extract, transform, and load your data.
 
-The ETL process will extract, transform, and load your data.
-
-Once complete, the Streamlit dashboard will automatically launch in your browser at:
-
-http://localhost:8501
+- Once complete, the Streamlit dashboard will automatically launch in your browser at:
+    - http://localhost:8501
 
 ### ⚙️ Configuration
 
-Update these paths in main.py if needed:
-
-file_path = "../data/raw_data.csv"
-cleaned_file_path = "../data/cleaned_data.csv"
+- Update these paths in main.py if needed:
+    - file_path = "../data/raw_data.csv"
+    - cleaned_file_path = "../data/cleaned_data.csv"
 
 
 ### Database connection settings can be adjusted inside load_to_db.py.
 
 ### 🧩 Dependencies
 
-Key Python packages used:
+- Key Python packages used:
 
-pandas
+    - pandas
 
-streamlit
+    - streamlit
 
-plotly
+    - plotly
 
-psycopg2
+    - psycopg2
 
-os, sys, subprocess
+    - os, sys, subprocess
 
 ### 🧾 Example Output (Terminal)
-[INFO] Extraction Complete.
-[INFO] Transformation Complete.
-[INFO] Data successfully saved to cleaned_data.csv
-[INFO] Data successfully loaded into PostgreSQL.
-[INFO] Launching Streamlit Dashboard...
+    - [INFO] Extraction Complete.
+    - [INFO] Transformation Complete.
+    - [INFO] Data successfully saved to cleaned_data.csv
+    - [INFO] Data successfully loaded into PostgreSQL.
+    - [INFO] Launching Streamlit Dashboard...
