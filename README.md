@@ -63,8 +63,8 @@ The Streamlit dashboard provides:
 ## 🛠️ Setup Instructions
 
 ### 1️⃣ Clone the Repository
-git clone https://github.com/Hasnain-T/Cafe-Visualisation-Project
-cd Cafe-Visualisation-Project
+- git clone https://github.com/Hasnain-T/Cafe-Visualisation-Project
+- cd Cafe-Visualisation-Project
 
 
 ### 2️⃣ Create and Activate a Virtual Environment
@@ -81,7 +81,38 @@ pip install -r requirements.txt
 
 Ensure src/main.py and src/cafe_dashboard.py exist, and data/raw_data.csv is available.
 
-### ▶️ Run the ETL Pipeline + Dashboard
+## 🐳 Docker Setup (Optional but Recommended)
+
+You can containerize the entire ETL and database setup for consistent development.
+
+### 1️⃣ Install Docker & Docker Compose
+
+- Download Docker Desktop
+
+- Ensure Docker Engine and Compose are running.
+
+### 2️⃣ Example docker-compose.yml
+
+- Check this file in your project root:
+    - docker-compose.yml
+
+### 3️⃣ Run the containers
+- docker-compose up -d
+
+### 4️⃣ Access Adminer
+
+- Once running, open your browser and visit:
+    - http://localhost:8080
+
+ - Adminer login:
+    - Field	Value
+    - System	PostgreSQL
+    - Server	postgres
+    - Username	cafe_user
+    - Password	cafe_pass
+    - Database	cafe_db
+
+## ▶️ Run the ETL Pipeline + Dashboard
 
 - From the src directory:
     - python main.py OR py main.py OR python3 main.py
