@@ -73,7 +73,7 @@ def load_to_db(df: pd.DataFrame):
         
         # Save cleaned, readable version (without Price_num) for CSV
         cleaned_display_df = df.drop(columns=['Price_num'], errors='ignore')
-        cleaned_display_df.to_csv("../data/cleaned_date.csv", index=False)
+        cleaned_display_df.to_csv("../data/cleaned_data.csv", index=False)
         custom_border_message("[INFO] Saved readable cleaned data to 'cleaned_data.csv'")
         # Print readable DataFrame to Terminal
         custom_border_message(cleaned_display_df.to_string(index=False))
