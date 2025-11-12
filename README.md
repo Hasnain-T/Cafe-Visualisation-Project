@@ -105,12 +105,12 @@ You can containerize the entire ETL and database setup for consistent developmen
     - http://localhost:8080
 
  - Adminer login:
-    - Field	Value
-    - System	PostgreSQL
-    - Server	postgres
-    - Username	cafe_user
-    - Password	cafe_pass
-    - Database	cafe_db
+    - Field:	Value
+    - System:	PostgreSQL
+    - Server:	postgres
+    - Username:	cafe_user
+    - Password:	cafe_pass
+    - Database:	cafe_db
 
 ## ▶️ Run the ETL Pipeline + Dashboard
 
